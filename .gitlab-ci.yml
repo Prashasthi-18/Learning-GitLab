@@ -5,10 +5,16 @@ stages:
 
 unit_test:
   stage: test
-  image: python:3.12   # Use this Docker image as the environment for this job.
+  image: python:3.12 
   script:
     - python --version
-    - pip --version  
+    - pip --version 
+
+frontend_test:
+  stage: test
+  image: node:22
+  script:
+    - node --version 
 
 integration_test:
   stage: test
@@ -22,6 +28,7 @@ lint:
 
 build:
   stage: build
+  image: python:3.12
   script:
     - echo "Building application"
 
